@@ -1,0 +1,27 @@
+name: Pull from SRC
+on:
+  schedule:
+    - cron: "59 */3 * * *"
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: pull
+      uses: minoplhy/serv-stuf@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+  restart_when_failed:
+    name: Dispatches run when it failed
+    runs-on: ubuntu-latest
+    if: failure()
+    needs: [build]
+    steps:
+    - name: Re-Run the workflow
+      run: |
+        curl -i \
+        -X POST \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ secrets.API_TOKEN_GITHUB }}" \
+        https://api.github.com/repos/minoplhy/serv-stuf/actions/workflows/16829805/dispatches \
+        -d '{"ref": "${{ github.ref }}" }'
