@@ -1,0 +1,9 @@
+name: "Pulling"
+description: "SRC=pol"
+branding:
+  icon: 'activity'
+  color: 'green'
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
