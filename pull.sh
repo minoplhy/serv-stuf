@@ -16,10 +16,10 @@ cp -r /serv-stuf/static/* .
 
 # Remove old content and download new ones.
 
-rm -rf ./content/filters
+rm -rf ./content
+
 gh release download latest -R github.com/minoplhy/filters -D ./content/filters
 
-rm -rf ./content/filters-build
 gh release download "filters-build" -R github.com/minoplhy/filters -D "./content/filters-build"
 
 # External pulling script
