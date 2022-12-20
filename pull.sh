@@ -10,10 +10,6 @@ rm token.txt
 # Visit ghpages branch
 cd /serv-stuf_pages
 
-# Copy Static files
-
-cp -r /serv-stuf/static/* .
-
 # Remove old content and download new ones.
 
 rm -rf ./content
@@ -21,6 +17,10 @@ rm -rf ./content
 gh release download latest -R github.com/minoplhy/filters -D ./content/filters
 
 gh release download "filters-build" -R github.com/minoplhy/filters -D "./content/filters-build"
+
+# Copy Static files
+
+cp -r /serv-stuf/static/* .
 
 # External pulling script
 
