@@ -12,7 +12,7 @@ cd /serv-stuf_pages
 
 # Copy Static files
 
-cp -r /serv-stuf/static .
+cp -r /serv-stuf/static/* .
 
 # Remove old content and download new ones.
 
