@@ -12,7 +12,7 @@ cd /serv-stuf_pages
 
 # Copy Static files
 
-cp /serv-stuf/static/* .
+cp -r /serv-stuf/static .
 
 # Remove old content and download new ones.
 
@@ -24,7 +24,7 @@ gh release download "filters-build" -R github.com/minoplhy/filters -D "./content
 
 # External pulling script
 
-bash /serv-stuf/content/resources/individual.sh
+bash /serv-stuf/script/individual.sh
 
 # Git Magic
 git config --local user.email hurbar@aspoblourib.1w1.one

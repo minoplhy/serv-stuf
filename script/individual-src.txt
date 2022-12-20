@@ -1,0 +1,9 @@
+./content/DNSBlocklist/domain/allowlist.txt https://github.com/minoplhy/DNSBlocklist/raw/main/domain/allowlist.txt
+./content/DNSBlocklist/domain/denylist.txt https://github.com/minoplhy/DNSBlocklist/raw/main/domain/denylist.txt
+./content/DNSBlocklist/rpz/denylist.rpz https://github.com/minoplhy/DNSBlocklist/raw/main/rpz/denylist.rpz
+./content/DNSBlocklist/rpz/allowlist.rpz https://github.com/minoplhy/DNSBlocklist/raw/main/rpz/allowlist.rpz
+./content/DNSBlocklist/rpz/cname-cloaking.rpz https://github.com/minoplhy/DNSBlocklist/raw/main/rpz/cname-cloaking.rpz
+./content/DNSBlocklist/adblock/allowlist.txt https://github.com/minoplhy/DNSBlocklist/raw/main/adblock/allowlist.txt
+./content/DNSBlocklist/adblock/denylist.txt https://github.com/minoplhy/DNSBlocklist/raw/main/adblock/denylist.txt
+./content/uncategories/filters/blocked.txt https://github.com/minoplhy/filters/raw/main/Resources/blocked.txt
+./content/uncategories/filters/excluded.txt https://github.com/minoplhy/filters/raw/main/Resources/excluded.txt
