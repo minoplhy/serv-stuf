@@ -1,3 +1,6 @@
+mkdir -p ./content
+
+
 # DNSBlocklist
 
 mkdir -p ./content/DNSBlocklist
