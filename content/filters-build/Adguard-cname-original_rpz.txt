@@ -1,0 +1,261 @@
+; Title: AdGuard CNAME original trackers list
+; Description: The list of trackers that are often disguised using CNAME. This list is supposed to be used only by Software capable of scanning CNAME records.
+; TimeUpdated: 2024-10-21T08:00:07+00:00
+; Homepage: https://github.com/AdguardTeam/cname-trackers
+;
+;
+; Company: affilbox.cz
+cz.affilbox.cz CNAME .
+*.cz.affilbox.cz CNAME .
+;
+; Company: 2cnt.net
+pl02.prolitteris.2cnt.net CNAME .
+*.pl02.prolitteris.2cnt.net CNAME .
+;
+; Company: A8.net
+a8.net CNAME .
+*.a8.net CNAME .
+;
+; Company: Actionlink.jp
+mm.actionlink.jp CNAME .
+*.mm.actionlink.jp CNAME .
+;
+; Company: ActionIQ
+mr-in.com CNAME .
+*.mr-in.com CNAME .
+;
+; Company: AD EBiS
+ebis.ne.jp CNAME .
+*.ebis.ne.jp CNAME .
+;
+; Company: AdSpyglass
+0i0i0i0.com CNAME .
+*.0i0i0i0.com CNAME .
+;
+; Company: ads2.bid
+ads.bid CNAME .
+*.ads.bid CNAME .
+;
+; Company: AT Internet (formerly XiTi)
+at-o.net CNAME .
+*.at-o.net CNAME .
+;
+; Company: Act-On
+actonservice.com CNAME .
+*.actonservice.com CNAME .
+actonsoftware.com CNAME .
+*.actonsoftware.com CNAME .
+;
+; Company: Adobe Experience Cloud (formerly Omniture)
+2o7.net CNAME .
+*.2o7.net CNAME .
+data.adobedc.net CNAME .
+*.data.adobedc.net CNAME .
+sc.adobedc.net CNAME .
+*.sc.adobedc.net CNAME .
+sc.omtrdc.net CNAME .
+*.sc.omtrdc.net CNAME .
+;
+; Company: Adocean
+adocean.pl CNAME .
+*.adocean.pl CNAME .
+;
+; Company: Aquaplatform
+aquaplatform.com CNAME .
+*.aquaplatform.com CNAME .
+;
+; Company: ahacdn.me
+cdn18685953.ahacdn.me CNAME .
+*.cdn18685953.ahacdn.me CNAME .
+;
+; Company: Branch.io
+thirdparty.bnc.lt CNAME .
+*.thirdparty.bnc.lt CNAME .
+;
+; Company: Clickaine
+api.clickaine.com CNAME .
+*.api.clickaine.com CNAME .
+;
+; Company: Commanders Act
+tagcommander.com CNAME .
+*.tagcommander.com CNAME .
+;
+; Company: Cordial
+track.sp.crdl.io CNAME .
+*.track.sp.crdl.io CNAME .
+;
+; Company: Criteo
+dnsdelegation.io CNAME .
+*.dnsdelegation.io CNAME .
+storetail.io CNAME .
+*.storetail.io CNAME .
+;
+; Company: customer.io
+e.customeriomail.com CNAME .
+*.e.customeriomail.com CNAME .
+;
+; Company: DataUnlocker
+dataunlocker.com CNAME .
+*.dataunlocker.com CNAME .
+monopoly-drain.ga CNAME .
+*.monopoly-drain.ga CNAME .
+friendly-community.tk CNAME .
+*.friendly-community.tk CNAME .
+;
+; Company: Ensighten
+nc0.co CNAME .
+*.nc0.co CNAME .
+;
+; Company: Etracker
+customer.etracker.com CNAME .
+*.customer.etracker.com CNAME .
+;
+; Company: Eulerian
+eulerian.net CNAME .
+*.eulerian.net CNAME .
+;
+; Company: Extole
+extole.com CNAME .
+*.extole.com CNAME .
+extole.io CNAME .
+*.extole.io CNAME .
+;
+; Company: Fathom
+fathomdns.com CNAME .
+*.fathomdns.com CNAME .
+;
+; Company: GENIEE
+genieespv.jp CNAME .
+*.genieespv.jp CNAME .
+;
+; Company: GMO Internet Group
+ad-cloud.jp CNAME .
+*.ad-cloud.jp CNAME .
+;
+; Company: GoatCounter
+goatcounter.com CNAME .
+*.goatcounter.com CNAME .
+;
+; Company: heleric.com
+heleric.com CNAME .
+*.heleric.com CNAME .
+;
+; Company: INFOnline
+iocnt.net CNAME .
+*.iocnt.net CNAME .
+;
+; Company: Ingenious Technologies
+affex.org CNAME .
+*.affex.org CNAME .
+;
+; Company: Keyade
+k.keyade.com CNAME .
+*.k.keyade.com CNAME .
+;
+; Company: Lead Forensics
+ghochv3eng.trafficmanager.net CNAME .
+*.ghochv3eng.trafficmanager.net CNAME .
+;
+; Company: LexisNexis Risk Solutions
+online-metrix.net CNAME .
+*.online-metrix.net CNAME .
+;
+; Company: Logly
+logly.co.jp CNAME .
+*.logly.co.jp CNAME .
+;
+; Company: Mailgun
+mailgun.org CNAME .
+*.mailgun.org CNAME .
+;
+; Company: NameSilo
+ab1n.net CNAME .
+*.ab1n.net CNAME .
+;
+; Company: Nativo
+ntv.io CNAME .
+*.ntv.io CNAME .
+ntvpforever.com CNAME .
+*.ntvpforever.com CNAME .
+postrelease.com CNAME .
+*.postrelease.com CNAME .
+;
+; Company: nonli.com
+non.li CNAME .
+*.non.li CNAME .
+;
+; Company: NP6
+tracking.bp01.net CNAME .
+*.tracking.bp01.net CNAME .
+;
+; Company: Oracle Eloqua
+t.eloqua.com CNAME .
+*.t.eloqua.com CNAME .
+;
+; Company: Otto Group
+oghub.io CNAME .
+*.oghub.io CNAME .
+;
+; Company: Pardot
+go.pardot.com CNAME .
+*.go.pardot.com CNAME .
+;
+; Company: Parse.ly
+parsely.com CNAME .
+*.parsely.com CNAME .
+;
+; Company: Plausible Analytics
+custom.plausible.io CNAME .
+*.custom.plausible.io CNAME .
+;
+; Company: PopCash
+popcashjs.b-cdn.net CNAME .
+*.popcashjs.b-cdn.net CNAME .
+;
+; Company: RedTrack
+rdtk.io CNAME .
+*.rdtk.io CNAME .
+;
+; Company: SailThru
+sailthru.com CNAME .
+*.sailthru.com CNAME .
+;
+; Company: Salesforce Mail Marketing
+exacttarget.com CNAME .
+*.exacttarget.com CNAME .
+;
+; Company: TraceDock
+a351fec2c318c11ea9b9b0a0ae18fb0b-1529426863.eu-central-1.elb.amazonaws.com CNAME .
+*.a351fec2c318c11ea9b9b0a0ae18fb0b-1529426863.eu-central-1.elb.amazonaws.com CNAME .
+a5e652663674a11e997c60ac8a4ec150-1684524385.eu-central-1.elb.amazonaws.com CNAME .
+*.a5e652663674a11e997c60ac8a4ec150-1684524385.eu-central-1.elb.amazonaws.com CNAME .
+a88045584548111e997c60ac8a4ec150-1610510072.eu-central-1.elb.amazonaws.com CNAME .
+*.a88045584548111e997c60ac8a4ec150-1610510072.eu-central-1.elb.amazonaws.com CNAME .
+afc4d9aa2a91d11e997c60ac8a4ec150-2082092489.eu-central-1.elb.amazonaws.com CNAME .
+*.afc4d9aa2a91d11e997c60ac8a4ec150-2082092489.eu-central-1.elb.amazonaws.com CNAME .
+;
+; Company: TrueData
+e.truedata.co CNAME .
+*.e.truedata.co CNAME .
+;
+; Company: Utiq
+utiq-aws.net CNAME .
+*.utiq-aws.net CNAME .
+;
+; Company: Webtrekk
+webtrekk.net CNAME .
+*.webtrekk.net CNAME .
+wt-eu02.net CNAME .
+*.wt-eu02.net CNAME .
+;
+; Company: Webair
+ak-is2.net CNAME .
+*.ak-is2.net CNAME .
+;
+; Company: Wizaly
+wizaly.com CNAME .
+*.wizaly.com CNAME .
+ CNAME .
+*. CNAME .
+ CNAME .
+*. CNAME .
