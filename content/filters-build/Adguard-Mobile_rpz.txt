@@ -1,0 +1,8506 @@
+; Homepage: https://github.com/AdguardTeam/AdGuardFilters
+; License: https://github.com/AdguardTeam/AdguardFilters/blob/master/LICENSE
+;
+;---------------------------------------------------------------------------;
+;-------------- General JS API ---------------------------------------------;
+;---------------------------------------------------------------------------;
+; JS API START
+
+
+
+
+
+;
+; AG_removeCookie
+; Examples: AG_removeCookie('/REGEX/') or AG_removeCookie('part of the cookie name')
+;
+
+;
+; AG_defineProperty
+; See https://github.com/AdguardTeam/deep-override
+;
+
+;
+; AG_abortOnPropertyWrite(property, debug)
+; Aborts execution of a script when it attempts to write the specified property.
+; Based on AG_defineProperty (https://github.com/AdguardTeam/deep-override)
+;
+; Examples:
+; AG_abortOnPropertyWrite('String.fromCharCode');
+;
+; @param property property or properties chain
+; @param debug optional, if true - we will print warning when script is aborted.
+;
+
+;
+; AG_abortOnPropertyRead(property, debug)
+; Aborts execution of a script when it attempts to read the specified property.
+; Based on AG_defineProperty (https://github.com/AdguardTeam/deep-override)
+;
+; Examples:
+; AG_abortOnPropertyRead('String.fromCharCode');
+;
+; @param property property or properties chain
+; @param debug optional, if true - we will print warning when script is aborted.
+;
+
+;
+; AG_abortInlineScript(regex, property, debug)
+; Aborts execution of an inline script when it attempts to access the specified property
+; AND content of the <script> element matches specified regular expression.
+; Based on AG_defineProperty (https://github.com/AdguardTeam/deep-override)
+;
+; Examples:
+; AG_abortInlineScript(/zfgloadedpopupzfgloadedpushopt/, 'String.fromCharCode');
+;
+; @param regex regular expression that the inline script contents must match
+; @param property property or properties chain
+; @param debug optional, if true - we will print warning when script is aborted.
+;
+
+;
+; AG_setConstant('property.chain', 'true') // defines boolean (true), same for false;
+; AG_setConstant('property.chain', '123') // defines Number 123;
+; AG_setConstant('property.chain', 'noopFunc') // defines function(){};
+; AG_setConstant('property.chain', 'trueFunc') // defines function(){return true};
+; AG_setConstant('property.chain', 'falseFunc') // defines function(){return false};
+;
+
+; JS API FINISH
+
+;---------------------------------------------------------------------------;
+;-------------- Advertising networks ---------------------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of third-party advertising networks domains for mobile devices.
+; Note, that we only put rules that block full domains here and not URL parts (there's `general_url.txt` for that). Also, it must be domains that are used in a third-party context.
+;
+
+; Bad: /banner.jpg (should be in general_url.txt)
+; Bad: adssubdomain.legitwebsite.com (should be in adservers_firstparty.txt)
+;
+;
+; 
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/171494
+adx-open-service.youku.com CNAME .
+ad.youku.com CNAME .
+ykad-data.youku.com CNAME .
+cad.youku.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/148028
+; Dcard app
+dad-api.dcard.tw CNAME .
+; com.hktv.android.hktvmall
+; https://github.com/AdguardTeam/AdguardFilters/issues/146615
+ad-splash-tracking.hktvmall.com CNAME .
+ad-splash.hktvmall.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/121846
+advil.waze.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/74651
+; com.opera.app.newslite
+s-adx.op-mobile.opera.com CNAME .
+s.adx.opera.com CNAME .
+; Apps by Ketchapp
+ketchapp.org CNAME .
+cdn-ketchapp.akamaized.net CNAME .
+;
+; Samsung mobile ads
+sspapi-prd.samsungrs.com CNAME .
+;
+; Appnext
+admin.appnext.com CNAME .
+global.appnext.com CNAME .
+cdn.appnext.com CNAME .
+api.appnxt.net CNAME .
+apis.appnxt.net CNAME .
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/3933
+; Yandex apps
+banners-slb.mobile.yandex.net CNAME .
+banners.mobile.yandex.net CNAME .
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/117115
+; Yahoo
+app.ssp.yahoo.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/61793
+; Breaks Yahoo Finance app on iOS https://github.com/AdguardTeam/AdguardFilters/issues/63354 (checked 12.2023)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/54135
+
+; Micromax India
+mimicromax.com CNAME .
+; Duodian
+bi.yeshen.com CNAME .
+launcher.us.yeshen.com CNAME .
+; iHandy
+search.adcaffe.com CNAME .
+monitor.adcaffe.com CNAME .
+; Hawk Internet (TCL)
+ad-api.ehawk.com CNAME .
+gwrtdp-tn690BFAdt.tclclouds.com CNAME .
+; MoboTap
+mobotoolpush.moboapps.io CNAME .
+; Duodian (Nox/Aiad)
+ssp.mediation.trnox.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/20567
+bu1.duba.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/11291
+behacdn.ksmobile.net CNAME .
+p-behacdn.ksmobile.net CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/8642
+crosspromotion.weplayer.cc CNAME .
+ad.weplayer.cc CNAME .
+; https://forum.adguard.com/index.php?threads/24268/
+mobile-campaigns.avast.com CNAME .
+; https://forum.adguard.com/index.php?threads/s-photo-editor-missed-ads-android.21096/
+adpush.goforandroid.com CNAME .
+; https://forum.adguard.com/index.php?threads/dodonpachi-unlimited-missed-ads-android.21000/
+dzpu6za66svjl.cloudfront.net CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/4757
+ad.flipboard.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/4645
+adserver.shadow.snapads.com CNAME .
+ads-chunks.prod.ihrhls.com CNAME .
+; Watch ABC
+api.ads.watchabc.go.com CNAME .
+; Supership.jp (also mobile ads)
+socdm.com CNAME .
+; Criteo mobile ads
+criteo.com CNAME .
+criteo.net CNAME .
+;
+appodeal.com CNAME .
+a.320981a9244924ef86ebdbb9eb877e9f21ce83f1e3cc89b2c5e7c3ff.com CNAME .
+;
+ad.buzzvil.com CNAME .
+screen.buzzvil.com CNAME .
+adstrategy.biz.weibo.com CNAME .
+ad.weibo.com CNAME .
+geoloc.yospace.com CNAME .
+banner.hpmdnetwork.ru CNAME .
+hybrid.ai CNAME .
+px.adhigh.net CNAME .
+ad.auditude.com CNAME .
+adfiles.auditude.com CNAME .
+cdn.auditude.com CNAME .
+cdn2.auditude.com CNAME .
+otcdn2.auditude.com CNAME .
+www.auditude.com CNAME .
+
+;
+; DU ads
+
+mblapi.ssl2.duapps.com CNAME .
+api.mobula.ds.duapps.com CNAME .
+noxagile.duapp.com CNAME .
+common.duapps.com CNAME .
+pasta.esfile.duapps.com CNAME .
+api.mobula.sdk.duapps.com CNAME .
+ad.duapps.com CNAME .
+; Ads on some Chinese smartphones
+ufz.doesxyz.com CNAME .
+xdrig.com CNAME .
+usp1.baidu.com CNAME .
+54.222.186.106 CNAME .
+plugin.mobopay.baidu.com CNAME .
+mo.freeindoapp.com CNAME .
+; AfreecaTV
+vod-mplayer.sooplive.co.kr CNAME .
+reqde.sooplive.co.kr CNAME .
+adballoon.sooplive.co.kr CNAME .
+deapi.sooplive.co.kr CNAME .
+; Yandex ads in apps
+startup.mobile.yandex.net CNAME .
+startup.mobile.webvisor.com CNAME .
+startup-mobile.ap.yandex-net.ru CNAME .
+;
+news-cdn.site CNAME .
+adx.mossru.com CNAME .
+jjpp.lmtjapi.com CNAME .
+a.07aa269c0e76550c929640c170af557c7371753ba1b580236d7fa0a4.com CNAME .
+a.64e98469810bd13e2b45e52d19d6fddfe333b3528350d8cfa792d478.com CNAME .
+ad.zijieapi.com CNAME .
+
+frontier100-toutiao-lf.fqnovel.com CNAME .
+ad.snaptube.app CNAME .
+ad.mobiuspace.net CNAME .
+api-ad-callback.falconnet.app CNAME .
+adnami.io CNAME .
+ads-router-noneu.truecaller.com CNAME .
+umphek.com CNAME .
+ahoy-internal-ads-hv.b-cdn.net CNAME .
+ad.iwhop.cn CNAME .
+s-odx.oleads.com CNAME .
+mediation.unity3d.com CNAME .
+cdn-ad.wtzw.com CNAME .
+appsrv.display.io CNAME .
+ad.line-scdn.net CNAME .
+splash-ad.classting.com CNAME .
+ad-files.classting.com CNAME .
+v16-ad.byteoversea.com CNAME .
+vs-api.voodoo-tech.io CNAME .
+psvpromo.psvgamestudio.com CNAME .
+
+
+static.timetreeads.com CNAME .
+kfvjdvjzhddhc.com CNAME .
+zgzxs.weathercn.com CNAME .
+
+downloadshi.b-cdn.net CNAME .
+ads.rmbl.ws CNAME .
+adsassets-ipv6.waze.com CNAME .
+iads.unity3d.com CNAME .
+togothermany.com CNAME .
+gdl.zmqdez.ru CNAME .
+rtblab.net CNAME .
+lacunads.com CNAME .
+
+diopousg.com CNAME .
+ruuaqkw.com CNAME .
+
+prod.adjoe.zone CNAME .
+
+mads.amazon.com CNAME .
+p16-ad.byteoversea.com CNAME .
+mtgglobals.com CNAME .
+pgdt.gtimg.cn CNAME .
+cmshow.gtimg.cn CNAME .
+projecta-common-1258344701.file.myqcloud.com CNAME .
+
+
+adrouter-charter-vod.cadenttech.tv CNAME .
+
+ads-sdk.nianticlabs.com CNAME .
+ad.mediamixer.co.kr CNAME .
+adfork.co.kr CNAME .
+92by17snes4.cc CNAME .
+
+ad.zijieapi.com CNAME .
+pglstatp-toutiao.com CNAME .
+open.e.kuaishou.cn CNAME .
+open.e.kuaishou.com CNAME .
+open.kuaishouzt.com CNAME .
+open.kwaizt.com CNAME .
+ali-ad.a.yximgs.com CNAME .
+
+tx-ad.a.yximgs.com CNAME .
+tx-kmpaudio.pull.yximgs.com CNAME .
+hw-ot-ad.a.yximgs.com CNAME .
+adkwai.com CNAME .
+marketing.mangacopy.com CNAME .
+gdfp.gifshow.com CNAME .
+p1-lm.adukwai.com CNAME .
+audiomob.com CNAME .
+ads-api.kidsnote.com CNAME .
+
+stream.spongead.com CNAME .
+naverpa-phinf.pstatic.net CNAME .
+tivan.naver.com CNAME .
+veta.naver.com CNAME .
+
+leadc6.icu CNAME .
+pangolin16.sgsnssdk.com CNAME .
+
+ads.adadapted.com CNAME .
+zflylg.buzz CNAME .
+zflfoy.xyz CNAME .
+zfkjrm.xyz CNAME .
+zflfoy.buzz CNAME .
+zfehvv.xyz CNAME .
+mtag.mman.kr CNAME .
+hybird.rayjump.com CNAME .
+anythinktech.com CNAME .
+d3hdbjtb1686tn.cloudfront.net CNAME .
+s.hisp.in CNAME .
+toponadss.com CNAME .
+adcs.myappsget.com CNAME .
+
+adsassets.waze.com CNAME .
+ads-resources.waze.com CNAME .
+ad.simpledesign.ltd CNAME .
+ads-sdk.mattel163.com CNAME .
+bdapi-ads.realmemobile.com CNAME .
+ads.oppomobile.com CNAME .
+adsfs.oppomobile.com CNAME .
+offerwall.yandex.net CNAME .
+adsmrapi.imbc.com CNAME .
+ads.imbc.com CNAME .
+skt-asum.com CNAME .
+bdapi-in-ads.realmemobile.com CNAME .
+bjads.bejbej.ca CNAME .
+external-ad.bunjang.co.kr CNAME .
+hellay.net CNAME .
+rqmob.com CNAME .
+ads-server.mxplay.com CNAME .
+mxaserver.mxplay.com CNAME .
+contextualadv.com CNAME .
+prebid-cache.ifunny.co CNAME .
+tk0x1.com CNAME .
+itdsmr.com CNAME .
+displayio.cloud CNAME .
+external-api.impression-neo.naver.com CNAME .
+mobiadvert.livesportmedia.eu CNAME .
+sdkv2.imaginationunwired.com CNAME .
+api-ad-adapter.wps.com CNAME .
+
+nasimobi.com CNAME .
+wd.adcolony.xyz CNAME .
+im.ov.yahoo.co.jp CNAME .
+
+
+
+
+thecatmachine.com CNAME .
+blueduckredapple.com CNAME .
+mobilefuse.com CNAME .
+api-ad-callback.mobiuspace.net CNAME .
+hb.rayjump.com CNAME .
+gdl.i9dhjx.ru CNAME .
+mobidriven.com CNAME .
+liftoff-creatives.io CNAME .
+everestop.io CNAME .
+mmp001.scalemonk.com CNAME .
+promotionad.nvcam.net CNAME .
+ad.nvdvr.cn CNAME .
+krt.asycxtz.cn CNAME .
+erg.ihclam.cn CNAME .
+hnl.ijgocb.cn CNAME .
+ob.leap.app CNAME .
+qist.me CNAME .
+ads-gdl.imovideo.ru CNAME .
+ads.imovideo.ru CNAME .
+adsbynimbus.com CNAME .
+adsgard.aprod.scopely.io CNAME .
+ads-interfaces.sc-cdn.net CNAME .
+adsapi.snapchat.com CNAME .
+adx-dre.op.hicloud.com CNAME .
+amanad.adtdp.com CNAME .
+ad.sxp.smartclip.net CNAME .
+amazonclix.com CNAME .
+api.itpub.cloud CNAME .
+adv-front.devpnd.com CNAME .
+mintegral.com CNAME .
+x-eu.64e98469810bd13e2b45e52d19d6fddfe333b3528350d8cfa792d478.com CNAME .
+skadsdk.appsflyer.com CNAME .
+alt-ad.mail.ru CNAME .
+chavoads.com CNAME .
+r2d2.aotter.net CNAME .
+tkcatrun.aotter.net CNAME .
+cdn.jampp.com CNAME .
+imgx.jampp.com CNAME .
+static.jampp.com CNAME .
+adx-tk.rayjump.com CNAME .
+dspunion.com CNAME .
+rossoad.com CNAME .
+athena.api.kwalee.com CNAME .
+mobondhrd.appspot.com CNAME .
+a.cookpad-ads.com CNAME .
+api.ads.newsdigest.jp CNAME .
+mobi.yanosik.pl CNAME .
+videoads-cloud.rovio.com CNAME .
+vmap.v.ad-generation.jp CNAME .
+iyes.youku.com CNAME .
+adg.kajicam.com CNAME .
+exelbid.com CNAME .
+ssp-ad.momento.dev CNAME .
+adpies.com CNAME .
+cs02-pps-drcn.dbankcdn.com CNAME .
+an.facebook.com CNAME .
+live.hyprmx.com CNAME .
+
+static.hyprmx.com CNAME .
+prod.cm.publishers.advertising.a2z.com CNAME .
+
+dm.isnssdk.com CNAME .
+h5.isnssdk.com CNAME .
+hotapi-va.isnssdk.com CNAME .
+i.isnssdk.com CNAME .
+i16-tb.isnssdk.com CNAME .
+ichannel.isnssdk.com CNAME .
+imapi-sg.isnssdk.com CNAME .
+open.isnssdk.com CNAME .
+pangolin16.isnssdk.com CNAME .
+tnc16-alisg.isnssdk.com CNAME .
+tnc16-useast1a.isnssdk.com CNAME .
+app.adjust.world CNAME .
+app.adjust.net.in CNAME .
+ads.feelingtouch.com CNAME .
+ad.tencentmusic.com CNAME .
+ads.iosappsworld.com CNAME .
+ads-cloud.rovio.com CNAME .
+aag.yahooapis.jp CNAME .
+goshare-fleet-ads.s3.ap-southeast-1.amazonaws.com CNAME .
+adcel.co CNAME .
+offerwall-adnative.com CNAME .
+ads.edadeal.ru CNAME .
+pr.comet.yahoo.com CNAME .
+tapjoy.com CNAME .
+tapjoy.net CNAME .
+tradplusad.com CNAME .
+ad-channel.wikawika.xyz CNAME .
+cads.scalemonk.com CNAME .
+adspot.tfgapps.com CNAME .
+analytics.scalemonk.com CNAME .
+vrizead.com CNAME .
+
+adpopcorn.com CNAME .
+pangle.io CNAME .
+pubnative.info CNAME .
+ad.leap.app CNAME .
+cl-ad.x-flow.app CNAME .
+soundcloud-pax.pandora.com CNAME .
+promoted.sndcdn.com CNAME .
+adservice.tohsoft.com CNAME .
+delivery-cdn-cf.adswizz.com CNAME .
+appboy-images.com CNAME .
+ad.particlenews.com CNAME .
+ad.wynk.in CNAME .
+pushad.metajoy.services CNAME .
+
+ad.snappea.com CNAME .
+adtimaserver.vn CNAME .
+api.mediation.amberweather.com CNAME .
+aqi.wd.amberweather.com CNAME .
+adslog.apexinnotech.com CNAME .
+matrix.dailyinnovation.biz CNAME .
+powerlinks.com CNAME .
+adkernel.com CNAME .
+dotomi.com CNAME .
+adentifi.com CNAME .
+springserve.com CNAME .
+aniview.com CNAME .
+mfadsrvr.com CNAME .
+addata.mediacategory.com CNAME .
+dm.toutiao.com CNAME .
+ads-leaseweb.appsgeyser.com CNAME .
+ads.appsgeyser.com CNAME .
+adtorque.in CNAME .
+configuration.ttpsdk.info CNAME .
+gateway.ttpsdk.info CNAME .
+promo-images.ttpsdk.info CNAME .
+s3.ttpsdk.info CNAME .
+api.applovefrom.com CNAME .
+iam.datasavannah.com CNAME .
+yovoads.com CNAME .
+restartad.com CNAME .
+appgiftwall.oss-us-west-1.aliyuncs.com CNAME .
+appgift.sinaapp.com CNAME .
+ad.mail.ru CNAME .
+servedby.o2.co.uk CNAME .
+amillionads.com CNAME .
+mcoreads.com CNAME .
+onlineapi.youappi.com CNAME .
+ssp.otm-r.com CNAME .
+networksdk.ssacdn.com CNAME .
+
+tapsell.ir CNAME .
+jioads.akamaized.net CNAME .
+ajdivotdelbloab24.jio.com CNAME .
+adxcorp.kr CNAME .
+
+
+tw-api.vpon.com CNAME .
+
+imrworldwide.com CNAME .
+tccbanner.com CNAME .
+
+ads-game-configuration-master.ads.prd.ie.internal.unity3d.com CNAME .
+cdp.cloud.unity3d.com CNAME .
+data-optout-service.uca.cloud.unity3d.com CNAME .
+thind-gke-euw.prd.data.corp.unity3d.com CNAME .
+unityads.unity3d.com CNAME .
+nkis.nikkei.com CNAME .
+gameanalysis.appcpi.net CNAME .
+ads.bulldogcpi.com CNAME .
+other.appcpi.net CNAME .
+d19xf4taj229i8.cloudfront.net CNAME .
+cafe-latte.myshoplus.com CNAME .
+luckyforworlds.com CNAME .
+cdn-adn.rayjump.com CNAME .
+
+buysellads.com CNAME .
+casino-ad-mediation.me2zengame.com CNAME .
+
+
+promoted.soundcloud.com CNAME .
+activity.browser.intl.miui.com CNAME .
+api.brs.intl.miui.com CNAME .
+api.newsfeed.intl.miui.com CNAME .
+adv.sec.intl.miui.com CNAME .
+adsrvr.io CNAME .
+t7z.cupid.iqiyi.com CNAME .
+data2.doodlemobile.com CNAME .
+d239g0z67jcted.cloudfront.net CNAME .
+newfeatureview.perfectionholic.com CNAME .
+featured.perfectionholic.com CNAME .
+crosspromo.voodoo.io CNAME .
+abtest.mistat.xiaomi.com CNAME .
+liftoff.io CNAME .
+tapdaq-adverts.global.ssl.fastly.net CNAME .
+rtb.appbid.com CNAME .
+rtapi.abbi.io CNAME .
+look.kfiopkln.com CNAME .
+
+tveta.naver.net CNAME .
+deliveryengine.adswizz.com CNAME .
+sitemaji.com CNAME .
+adsapi.manhuaren.com CNAME .
+euadsapi.manhuaren.com CNAME .
+msg.ettoday.net CNAME .
+ad-ettoday.cdn.hinet.net CNAME .
+adv-ettoday.cdn.hinet.net CNAME .
+adv.ettoday.net CNAME .
+startappservice.com CNAME .
+x.appbaqend.com CNAME .
+tkcatwalk.aotter.net CNAME .
+tkmedia.aotter.net CNAME .
+tkmedia-cache.aotter.net CNAME .
+tkportal.aotter.net CNAME .
+client.midosoo.com CNAME .
+sc.smardroid.com CNAME .
+
+
+
+pssvc.iqzone.com CNAME .
+cdn-cf.postitial.com CNAME .
+opt8.co CNAME .
+ads-bidder-api.twitter.com CNAME .
+
+speee-ad.akamaized.net CNAME .
+
+
+ads.jianchiapp.com CNAME .
+abroad-ad.kingsoft-office-service.com CNAME .
+agent.tamedia.com.tw CNAME .
+www.adbert.com.tw CNAME .
+tw.api.vpon.com CNAME .
+sdk.adtiming.com CNAME .
+adsmogo.net CNAME .
+adsmogo.mobi CNAME .
+chartboosts.com CNAME .
+mobpowertech.com CNAME .
+ap.smardroid.com CNAME .
+api.ampiri.com CNAME .
+
+splicky.com CNAME .
+
+
+cdn.batmobi.net CNAME .
+
+adn.insight.ucweb.com CNAME .
+tkmftc.aotter.net CNAME .
+d32z5ni8t5127x.cloudfront.net CNAME .
+sumatoad.com CNAME .
+gdn.bigfishgames.com CNAME .
+883.engine.mobileapptracking.com CNAME .
+ad.daum.net CNAME .
+nickhel.com CNAME .
+redtram.com CNAME .
+oconner.biz CNAME .
+et-code.ru CNAME .
+gynax.com CNAME .
+avazunativeads.com CNAME .
+
+api.ad-locus.com CNAME .
+023hysj.com CNAME .
+lxqcgj.com CNAME .
+
+betsonsport.ru CNAME .
+holder.com.ua CNAME .
+crosspromotion-us.avosapps.us CNAME .
+ad.period-calendar.com CNAME .
+cpactions.com CNAME .
+native.cli.bz CNAME .
+adplatform.vrtcal.com CNAME .
+appodealx.com CNAME .
+go.vrvm.com CNAME .
+c.vrvm.com CNAME .
+cls.vrvm.com CNAME .
+nycp-hlb.dvgtm.akadns.net CNAME .
+abbott.vo.llnwd.net CNAME .
+behance.vo.llnwd.net CNAME .
+synthes.vo.llnwd.net CNAME .
+teachscape.vo.llnwd.net CNAME .
+tmz.vo.llnwd.net CNAME .
+videoplus.vo.llnwd.net CNAME .
+wdig.vo.llnwd.net CNAME .
+appnext.hs.llnwd.net CNAME .
+adsdk.vrvm.com CNAME .
+moatads.com.edgekey.net CNAME .
+a.applvn.com CNAME .
+adslot.uc.cn CNAME .
+disqusads.com CNAME .
+
+
+api.cloudmobi.net CNAME .
+polymorphicads.jp CNAME .
+cdns.lodeo.io CNAME .
+ingamesads.gameloft.com CNAME .
+i2ad.jp CNAME .
+mxvp-ad-config-prod-1.zenmxapps.com CNAME .
+mxvp-feature-toggle-prod-1.zenmxapps.com CNAME .
+zzhengre.com CNAME .
+
+
+go.admost.com CNAME .
+med-api.admost.com CNAME .
+cdn-api.admost.com CNAME .
+bidsopt.com CNAME .
+tpbid.com CNAME .
+exe.bid CNAME .
+hyperadx.com CNAME .
+admarvel.com CNAME .
+mopub-win-us-east.bksn.se CNAME .
+nativead.s3.amazonaws.com CNAME .
+
+eu-ad.sam4m.com CNAME .
+c2i.startappnetwork.com CNAME .
+c2s.startappnetwork.com CNAME .
+apptornado.com CNAME .
+api.pingstart.com CNAME .
+setting.rayjump.com CNAME .
+net.rayjump.com CNAME .
+ad.cauly.co.kr CNAME .
+config.appjolt.com CNAME .
+adflake.com CNAME .
+ads.aitype.net CNAME .
+ad-creatives-public.commondatastorage.googleapis.com CNAME .
+
+1mp.mobi CNAME .
+247realmedia.com CNAME .
+
+360yield.com CNAME .
+a2dfp.net CNAME .
+abnad.net CNAME .
+abtest.swrve.com CNAME .
+
+ad-brix.com CNAME .
+ad-stir.com CNAME .
+ad-x.co.uk CNAME .
+ad.apps.fm CNAME .
+ad.apsalar.com CNAME .
+ad.doubleclick.net CNAME .
+ad.jorte.com CNAME .
+ad.leadboltapps.net CNAME .
+ad.ohmyad.co CNAME .
+ad.smaad.jp CNAME .
+ad.vrvm.com CNAME .
+ad6media.fr CNAME .
+adadvisor.net CNAME .
+adblade.com CNAME .
+adcamp.ru CNAME .
+adcel.vrvm.com CNAME .
+adcolony.com CNAME .
+addapptr.com CNAME .
+adforgames.com CNAME .
+adform.com CNAME .
+adfox.ru CNAME .
+adgear.com CNAME .
+adgrx.com CNAME .
+adhitzads.com CNAME .
+adhood.com CNAME .
+adinfo.tango.me CNAME .
+adinfuse.com CNAME .
+adition.com CNAME .
+adkmob.com CNAME .
+adleads.com CNAME .
+adlibr.com CNAME .
+adman.gr CNAME .
+admarketing.yahoo.net CNAME .
+admarvel.s3.amazonaws.com CNAME .
+admedia.com CNAME .
+admicro1.vcmedia.vn CNAME .
+
+admixer.co.kr CNAME .
+admixer.net CNAME .
+admulti.com CNAME .
+adonly.com CNAME .
+vm5apis.com CNAME .
+adprotected.com CNAME .
+adproxy.tf1.fr CNAME .
+adpublisher.s3.amazonaws.com CNAME .
+adquota.com CNAME .
+ads.ad2iction.com CNAME .
+ads.aerserv.com CNAME .
+ads.mobilefuse.net CNAME .
+ads.mobilityware.com CNAME .
+ads.mobvertising.net CNAME .
+ads.mopub.com CNAME .
+ads.pdbarea.com CNAME .
+ads.pinger.com CNAME .
+ads.taptapnetworks.com CNAME .
+ads.xlxtra.com CNAME .
+ads.youtube.com CNAME .
+adsee.jp CNAME .
+adserver.goforandroid.com CNAME .
+adserver.kimia.es CNAME .
+adserver.pandora.com CNAME .
+adshost2.com CNAME .
+adsmo.ru CNAME .
+adsmoloco.com CNAME .
+adsniper.ru CNAME .
+adsrvmedia.net CNAME .
+adsrvr.org CNAME .
+adtech.de CNAME .
+adtilt.com CNAME .
+adtrack.king.com CNAME .
+adultadworld.com CNAME .
+adv.mxmcdn.net CNAME .
+adversal.com CNAME .
+adverticum.net CNAME .
+advertise.com CNAME .
+advertising.com CNAME .
+advertur.ru CNAME .
+advombat.ru CNAME .
+adz.mobi CNAME .
+adzerk.net CNAME .
+adzmobi.com CNAME .
+am15.net CNAME .
+amobee.com CNAME .
+api.fusepowered.com CNAME .
+api.usebutton.com CNAME .
+appclick.net CNAME .
+appintop.com CNAME .
+applifier.com CNAME .
+
+applovin.com CNAME .
+appnext-a.akamaihd.net CNAME .
+appsdt.com CNAME .
+appserver-ap.com CNAME .
+appserver-cp.com CNAME .
+appshelf.ttpsdk.info CNAME .
+appwall.tv2phone.cn CNAME .
+as.adfonic.net CNAME .
+assoc-amazon.com CNAME .
+astrsk.net CNAME .
+atti.com CNAME .
+axonix.com CNAME .
+bannerflow.com CNAME .
+banners.etermax.com CNAME .
+bannersnack.com CNAME .
+bannerwall.herewetest.com CNAME .
+bannerwall.s3.appcnt.com CNAME .
+bayctrk.com CNAME .
+bcfads.com CNAME .
+begun.ru CNAME .
+bepolite.eu CNAME .
+bet365affiliates.com CNAME .
+betrad.com CNAME .
+bigmobileads.com CNAME .
+black6adv.com CNAME .
+blogads.com CNAME .
+boostads.net CNAME .
+brealtime.com CNAME .
+
+bubblesmedia.ru CNAME .
+burstnet.com CNAME .
+buzzcity.net CNAME .
+buzzonclick.com CNAME .
+c8.net.ua CNAME .
+cashprom.ru CNAME .
+cdn-image.com CNAME .
+celtra.com CNAME .
+ceppartner.com CNAME .
+cf-ads.pinger.com CNAME .
+chango.com CNAME .
+chartboost.com CNAME .
+clk.taptica.com CNAME .
+
+comscore.com CNAME .
+config.tremorhub.com CNAME .
+cp.pushwoosh.com CNAME .
+cpmstar.com CNAME .
+crispadvertising.com CNAME .
+crossboardmobile.com CNAME .
+csi.gstatic.com CNAME .
+ctl.buyt.in CNAME .
+d2nrdy2pg3k168.cloudfront.net CNAME .
+d830x8j3o1b2k.cloudfront.net CNAME .
+debojuagug1sf.cloudfront.net CNAME .
+dev.appboy.com CNAME .
+dumedia.ru CNAME .
+e-planning.net CNAME .
+e.apsalar.com CNAME .
+e.qq.com CNAME .
+eltrafiko.com CNAME .
+emediate.eu CNAME .
+emediate.se CNAME .
+epom.com CNAME .
+etargetnet.com CNAME .
+exponential.com CNAME .
+fiksu.com CNAME .
+fluentmobile.com CNAME .
+flurry.cachefly.net CNAME .
+flurry.com CNAME .
+flygo.ru CNAME .
+focas.jp CNAME .
+friendlyduck.com CNAME .
+fyber.com CNAME .
+g.doubleclick.net CNAME .
+geede.info CNAME .
+go.mobstitialtag.com CNAME .
+googleadservices.com CNAME .
+gts-ads.twistbox.com CNAME .
+gumgum.com CNAME .
+ha-api.pushwoosh.com CNAME .
+heyzap.com CNAME .
+
+houseads-prod.elasticbeanstalk.com CNAME .
+houseads.ttpsdk.info CNAME .
+httpool.com CNAME .
+huntmad.com CNAME .
+i-mobile.co.jp CNAME .
+i-vengo.com CNAME .
+i.skimresources.com CNAME .
+iad.appboy.com CNAME .
+
+iadsdk.apple.com CNAME .
+imasdk.googleapis.com CNAME .
+
+infolinks.com CNAME .
+inmobi.com CNAME .
+inmobi.net CNAME .
+inmobi.cn CNAME .
+inmobicdn.net CNAME .
+inmobisdk-a.akamaihd.net CNAME .
+inner-active.com CNAME .
+inner-active.mobi CNAME .
+innovid.com CNAME .
+integral-marketing.com CNAME .
+intermarkets.net CNAME .
+intowow.com CNAME .
+investingchannel.com CNAME .
+justad.mobi CNAME .
+
+kiosked.com CNAME .
+kochava.com CNAME .
+komoona.com CNAME .
+krutilka.net CNAME .
+l0-secure.videohub.tv CNAME .
+l3op.info CNAME .
+lb.usemaxserver.de CNAME .
+leadboltads.net CNAME .
+leanplum.com CNAME .
+
+mad.mobisky.pl CNAME .
+madnet.ru CNAME .
+mads.bz CNAME .
+manage.com CNAME .
+mbn.com.ua CNAME .
+medialand.ru CNAME .
+
+meendocash.com CNAME .
+metamx.com CNAME .
+mgage.com CNAME .
+mi.gdt.qq.com CNAME .
+mixadvert.com CNAME .
+mixmarket.biz CNAME .
+moba8.net CNAME .
+mobads.baidu.com CNAME .
+mobads4app.com CNAME .
+mobclix.com CNAME .
+mobfox.com CNAME .
+mobiads.ru CNAME .
+
+mobile333.com CNAME .
+mobilecore.com CNAME .
+mobiledl.adboe.com CNAME .
+mofox.com CNAME .
+mtburn.com CNAME .
+mtburn.jp CNAME .
+mtrcss.com CNAME .
+mydas.mobi CNAME .
+n4403ad.doubleclick.net CNAME .
+nanigans.com CNAME .
+nativex.com CNAME .
+nearbyad.com CNAME .
+nend.net CNAME .
+netavenir.com CNAME .
+netseer.com CNAME .
+netshelter.net CNAME .
+networld.hk CNAME .
+newsnet.in.ua CNAME .
+nexac.com CNAME .
+nomalleadzuaff.com CNAME .
+novostimira.biz CNAME .
+numbers.md CNAME .
+os.scmpacdn.com CNAME .
+
+
+
+partnerearning.com CNAME .
+perf-events.cloud.unity3d.com CNAME .
+pflexads.com CNAME .
+phluant.com CNAME .
+pixel.admobclick.com CNAME .
+playhaven.com CNAME .
+
+pontiflex.com CNAME .
+
+
+pub1.co CNAME .
+pubmatic.com CNAME .
+pubnative.net CNAME .
+questionmarket.com CNAME .
+revcontent.com CNAME .
+richpays.com CNAME .
+rotaban.ru CNAME .
+
+saymedia.com CNAME .
+scorecardresearch.com CNAME .
+sdk.starbolt.io CNAME .
+servebom.com CNAME .
+sessionm.com CNAME .
+shareasale.com CNAME .
+sharethrough.com CNAME .
+silvermob.com CNAME .
+i.singular.net CNAME .
+sdk-api-v1.singular.net CNAME .
+skadnetwork.singular.net CNAME .
+sitescout.com CNAME .
+smaclick.com CNAME .
+smartadserver.com CNAME .
+sonobi.com CNAME .
+splash.appsgeyser.com CNAME .
+sscefsol.com CNAME .
+stat.kika-backend.com CNAME .
+static.doubleclick.net CNAME .
+supersonicads-a.akamaihd.net CNAME .
+supersonicads.com CNAME .
+swelen.com CNAME .
+switchadhub.com CNAME .
+syndication.trafficreps.com CNAME .
+tap-nexus.appspot.com CNAME .
+tapad.com CNAME .
+tapit.com CNAME .
+tapone.jp CNAME .
+tappx.com CNAME .
+tapsense.com CNAME .
+
+targetspot.com CNAME .
+telemetryverification.net CNAME .
+thetrafficstat.net CNAME .
+tizerclik.com CNAME .
+tm1.hoiplay.com CNAME .
+tonefuse.com CNAME .
+tpc.googlesyndication.com CNAME .
+
+trackimpression.com CNAME .
+tracking.applift.com CNAME .
+tradeadexchange.com CNAME .
+traff10wap.com CNAME .
+trafficjunky.net CNAME .
+trafmag.com CNAME .
+traktum.com CNAME .
+trc.taboola.com CNAME .
+trk.glispa.com CNAME .
+tubemogul.com CNAME .
+turn.com CNAME .
+u-ad.info CNAME .
+ultraadserver.com CNAME .
+umbel.com CNAME .
+unicume.com CNAME .
+upsight.com CNAME .
+usekahuna.com CNAME .
+velti.com CNAME .
+
+vserv.mobi CNAME .
+vungle.com CNAME .
+waiads.com CNAME .
+wapstart.ru CNAME .
+west.bidtellect.com CNAME .
+widespace.com CNAME .
+wordego.com CNAME .
+presage.io CNAME .
+wtraff.com CNAME .
+ximad.com CNAME .
+yandexadexchange.net CNAME .
+yc-ads.s3.amazonaws.com CNAME .
+yieldkit.com CNAME .
+yieldmo.com CNAME .
+yllix.com CNAME .
+youmi.net CNAME .
+
+zedo.com CNAME .
+ziffdavis.com CNAME .
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+;----- For HTTPS websites when HTTPS filtering is disabled ------
+n152adserv.com CNAME .
+smilered.com CNAME .
+;----------------------------------------------------------------
+
+;---------------------------------------------------------------------------;
+;-------------- Anti-adblock rules -----------------------------------------;
+;---------------------------------------------------------------------------;
+;
+; First of all, this section has common rules that prevent most known ad block detections. In that case domain should be added to the common rules.
+; The section contains the list of the rules are against all kinds of ads reinjection or ad-blocking circumvention scripts. If such a script does not cripple the website, we add rules to the Annoyances filter.
+; Rules should generally be domain-specific. In some exceptional cases, it's allowed to add generic ones, but this should be approved by most of the maintainers.
+;
+; Good: 
+
+; Bad: ad.doubleclick.net (should be in adservers.txt)
+;
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/189769
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/169823
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/164959
+
+
+
+; nazology.kusuguru.co.jp,nijimen.kusuguru.co.jp anti-adb
+
+
+;+ PLATFORM(ios, ext_android_cb)
+
+; Rules for AdFender to block injected ads when AdGuard DNS is active
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/127712
+
+
+
+
+
+; https://github.com/uBlockOrigin/uAssets/issues/10674
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/81517
+
+
+
+; https://forum.adguard.com/index.php?threads/ios-cannot-load-videos-on-a-website.39306/
+
+; merkur.de amp adblock detection for glomex video (Android)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/44990
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/32971
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/23913
+;+ PLATFORM(ios, ext_android_cb)
+
+; wr.de/wp.de/nrz.de
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17629
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/16544
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/8802
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/14770
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/14756
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/14752
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/9789
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5033
+
+; https://forum.adguard.com/index.php?threads/20215/
+
+; https://forum.adguard.com/index.php?threads/19885/
+
+; https://forum.adguard.com/index.php?threads/19892/
+
+; https://forum.adguard.com/index.php?threads/16365/
+
+; https://forum.adguard.com/index.php?threads/15379/
+
+; https://forum.adguard.com/index.php?threads/15378/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2506
+
+
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2661
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2322
+
+; http://forum.adguard.com/showthread.php?10051
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/713
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/449
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1817
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1709
+
+
+;
+;
+; START: Yandex
+;
+; ya.ru - main page
+
+;
+; Yandex.Search
+; Update unblocking rule for the search ads in usefulads.txt
+
+
+
+;
+; Yandex.Images
+
+
+;
+; Yandex.Video
+
+
+
+
+
+;
+; Yandex.Maps
+;
+; Yandex.Pogoda
+
+
+;
+; Yandex.Mail
+
+;
+; Yandex.Market
+;
+; Yandex.Afisha
+
+
+
+
+;
+; Yandex.Realty
+
+
+
+
+
+;
+; Yandex.Q
+
+
+
+;
+; Turbopages
+
+
+
+;
+; END: Yandex
+;
+;
+
+;---------------------------------------------------------------------------;
+;-------------- General element hiding rules -------------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains generic element hiding rules that block ads on mobile devices.
+;
+
+
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+;--- popular banner sizes ---
+
+
+; AMP websites ad container class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;---------------------------------------------------------------------------;
+;-------------- General javascript, CSS and HTML extensions ----------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of ad blocking rules that fall under "advanced" category.
+
+;
+
+
+;
+;-------------------
+;-------JS----------
+;-------------------
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/181118
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/180651
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/178931
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/163622
+
+; leftover with scroll-lock and page blur after scrolling
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/170071
+
+; https://hanime.tv/ - click one of the videos.
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/169125
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/167252
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/165172
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/161396
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/158207
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157682
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157812
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/152463
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/149559
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/147201
+; TODO: use inject-css-in-shadow-dom scriptlet when it will be available in apps
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/143820
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/140900
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/139461
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/136536
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/136216
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/134894
+
+; https://forum.adguard.com/index.php?threads/12443/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/130689
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/129754
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/126016
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/126103
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/120699
+; popup on back/erobanach.com overlay
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119596
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/118753
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/118856
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/118880
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/116834
+
+; m.sunporno.com popunder
+
+; https://jbbs.shitaraba.net/bbs/read.cgi/internet/24461/1510462016/433
+
+; overlay causing scroll locked
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/98497
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/93574
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/90236
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/89046
+; https://github.com/AdguardTeam/AdguardFilters/issues/81870
+
+; https://forum.adguard.com/index.php?threads/39361/
+
+; mediafire.com - popunder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/77016
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/71604
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/70484
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/68663
+;+ PLATFORM(ios, ext_android_cb)
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/67931
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/65853
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/70278
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/65274
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64521
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/63495
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/60188
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/58633
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/56038
+
+; ixbt.com - исправление отступа в мобильной версии
+
+; xhamster.com - ad redirect
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/47222
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/47227
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/47217
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/42640
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/38730
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/9324
+; TODO: Change AG_defineProperty to scripltet when this issue will be fixed - https://github.com/AdguardTeam/Scriptlets/issues/65
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2520
+
+
+
+;-------------------
+;-------CSS---------
+;-------------------
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/188864
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/188106
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/187947
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/187737
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/186750
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/183388
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/182180
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/181367
+
+; leftover
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/175610
+
+; https://realsound.jp/book/2024/02/post-1564543.html/photo/20240204-dragonball-01
+
+; broken layout
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/171743
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/170337
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/169839
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/169541
+
+
+; jikayosha.jp placeholder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/168489
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/167698
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/166286
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/166272
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/165918
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/164870
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/165128
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/164011
+
+; Kinogo
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/162964
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/162284
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/161731
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/159787
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/159490
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/158759
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/158575
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157914
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157986
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157686
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157499
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157080
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/156672
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/156547
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/156057
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/155199
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/154985
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/154636
+
+
+; fix layout
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/150762
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/150928
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/148140
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/146957
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/146310
+
+; placeholder
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/145651
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/145234
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/145380
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/158100
+; https://github.com/AdguardTeam/AdguardFilters/issues/142211
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/141680
+
+; fix page scroll
+
+; fix sticky top menu
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/140159
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/139846
+
+
+; maclife.de - left-over at top
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/137945
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/137676
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/137600
+
+
+; ameblo.jp placeholder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/134571
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/133758
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/133614
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/133653
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/133761
+
+
+
+
+; leftover at the top
+
+; leftover at the top
+
+
+
+
+
+
+
+; leftover at the top
+
+
+; scroll lock (not by cosmetic filter)
+
+; bottom placeholder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/131270
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/129361
+
+; remove placeholder
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/126103
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/125755
+
+; broken layout
+
+; placeholder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/122866
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/122347
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/120990
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/120139
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119596
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119295
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119240
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114941
+
+; https://github.com/uBlockOrigin/uAssets/issues/12688
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114041
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/113132
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/112205
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/112858
+
+
+; 9gag.com - ad leftover at the top
+
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/111188
+
+; brandkagu-outlet.net ad
+
+
+; https://jbbs.shitaraba.net/bbs/read.cgi/internet/24461/1510462016/433
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/109697
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/109040
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/108297
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/103481
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/105301
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/101806
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/101681
+
+; placeholder
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/99545
+
+; overlay
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/98690
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/96652
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/120699
+; https://github.com/AdguardTeam/AdguardFilters/issues/114749
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/92726
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/92579
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/92273
+
+
+
+
+; minor cosmetic issue
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/90538
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/89046
+; m.formel1.de - fix empty space
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/83207
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/82036
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/78062
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/78598
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/70505
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/68850
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/68045
+
+; pcgames.de - left-over at top
+
+; ixbt.com - исправление отступа в мобильной версии
+
+; xhamster popup ads
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/61897
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/62346
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/58092
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/51871
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/46115
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/43035
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/32704
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36188
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36509
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/32452
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/37472
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/30672
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/28542
+
+; rbc.ru - ad popup
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/23669
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/19286
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/23121
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/22276
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/19018
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17440
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17025
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/12867
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/8970
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7798
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7009
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5130
+
+; https://forum.adguard.com/index.php?threads/22273/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4453
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/2068
+
+;
+
+;-------------------
+;-------HTML--------
+;-------------------
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/139022
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/136614
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/134379
+
+; AMP ads in ShadowRoot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17500
+
+
+;---------------------------------------------------------------------------;
+;-------------- General URL blocking rules ---------------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of generic blocking rules (mobile sites or apps).
+;
+; Good: .org/ads/
+
+;
+;
+
+
+
+
+
+
+
+
+
+cloudads-a.akamaihd.net CNAME .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; Facebook Ad Choices
+
+
+;---------------------------------------------------------------------------;
+;-------------- Fixing filtration errors (false-positive) ------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of rules that fix incorrect blocking in mobile apps. Rules must be app-specific.
+;
+
+
+;
+;
+;
+; Repeated requests, two or more in one second if blocked - https://old.reddit.com/r/Adguard/comments/ztbv96/how_do_i_stop_this_my_phone_is_overheating_and/
+; https://old.reddit.com/r/Adguard/comments/18s9snu/api2branch_causing_cpu_overheat/
+
+
+
+
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/190962
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/189134
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/186071
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/182993
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/181178
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/178331
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/178333
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/175802
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/174633
+; Missing a few seconds of video between scenes
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/174095
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/173585
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/172881
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/171942
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/167921
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/162304
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/162044
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/159251
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/158370
+
+; https://play.google.com/store/apps/details?id=fm.tokfm.android
+; Fixes radio
+
+; https://play.google.com/store/apps/details?id=pl.tvp.tvp_sport
+; https://play.google.com/store/apps/details?id=pl.tvp.info
+; https://play.google.com/store/apps/details?id=pl.tvp.stream
+; https://play.google.com/store/apps/details?id=com.tvp.vodtv.mobile
+; Fixes video player
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/149283
+
+; com.square_enix.android_googleplay.dqwalkj breakage
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/131656
+
+; GMX mail app - unable to accept cookie
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/130017
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/125977
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/100669
+
+
+
+
+
+; https://play.google.com/store/apps/details?id=com.ss.android.article.topbuzzvideo connection error
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/35772
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/26520
+
+; com.jellybtn.cashkingmobile - fixing permanent network requests
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7916
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/976
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/1256
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5539
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/1160
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3610
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/925
+
+; Play Music mad blocked counter issue
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/2153
+
+; Youtube & Samsung issue: https://github.com/AdguardTeam/AdguardForAndroid/issues/986
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/100525
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/15744
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/14202
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/84216
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/83378
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/76328
+
+; https://t.me/adguard/106642
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/67951
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/66514
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/65956
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64666
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/62745
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/61569
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/59674
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/58229
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/54515
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/52988
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/53161
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/48948
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/48570
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/46634
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/46374
+; App does not work if any analytics is blocked. No ads in this app.
+
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/207
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/46054
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/45192
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/42482
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/42305
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/41572
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/38689
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/37195
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29479
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/30906
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29029
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/28297
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/26940
+; https://github.com/AdguardTeam/AdguardFilters/issues/27245
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/26774
+
+;
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/24907
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/24182
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/18815
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/22839
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/19737
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21152
+
+
+
+
+
+
+; ru.rostel - fixing app
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/20405
+
+
+
+
+; https://github.com/AdguardTeam/CoreLibs/issues/348
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17993
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/11600
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/12552
+
+; com.google.android.googlequicksearchbox - app crashes when request is blocked
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6505
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6728
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6134
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6133
+
+; https://forum.adguard.com/index.php?threads/le-bon-coin-apk-from-googleplay.18840/
+; fix ?ad_id= in Liste FR
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4901
+
+; https://forum.adguard.com/index.php?threads/19617/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4493
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4471
+
+; com.sofoot app
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3717
+
+; FOCUS Online
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3131
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2697
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2461
+
+
+
+
+
+
+; Daily Mail Online
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2462
+; The Chive
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2318
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2245
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/2191
+
+
+; Fixing Buffer app
+
+
+
+; Crunchyroll
+
+
+; com.picsart.studio
+
+
+; ua.slando - fixing adverts
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/127574
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/125469
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114864
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114381
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/101979
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/98633
+
+
+;
+; This section contains the list of rules that fix incorrect blocking. Rules must be domain-specific.
+;
+
+
+;
+;
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/188534
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/185597
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/179429
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/177593
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/175651
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/166753
+; unblock cookie popup
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/159717
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/159698
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/157080
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/152943
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/151186
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/144146
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/140940
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/4235
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/118887
+;+ PLATFORM(android, ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/115709
+
+; Crunchyroll
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114968
+
+
+
+
+
+
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/112360
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/103481
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/98108
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/95096
+;+ PLATFORM(android)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/92164
+;+ PLATFORM(ios, ext_safari)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/88141
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/86726
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/68075
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/67968
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/67705
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/66650
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/65217
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64416
+; It's caused by RU AdList
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64328
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/62819
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64329
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/61298
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/58027
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/58752
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/57107
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/56041
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/54357
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/54380
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/53741
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/52979
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/52091
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/52046
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/50976
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/47849
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/44518
+
+; kiss-anime.ws - broken pages iOS
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/38428
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/35748
+;+ PLATFORM(ext_ublock)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/34162
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36227
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/24587
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36075
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/28826
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/26732
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/26698
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/22203
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/23772
+pics.porndroids.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/18815
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/23151
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21581
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21111
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21178
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21131
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/19957 - scroll issue
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/20539
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/20126
+;+ PLATFORM(ios, ext_android_cb)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17538 - fixes scrolling on mobile sports.yahoo.com
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/19415
+
+; m.youtube.com - fixing rule for Android
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17500
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17832
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17503
+;+ PLATFORM(ios)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/15836
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+; https://forum.adguard.com/index.php?threads/28124/
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/10135
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/9763
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/9597
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7798
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7900
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/8001
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6807
+
+
+
+
+
+
+
+; https://forum.adguard.com/index.php?threads/25567/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6725
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/6694
+
+; https://forum.adguard.com/index.php?threads/20287/
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5005
+
+; https://forum.adguard.com/index.php?threads/21029/
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4659
+
+; https://github.com/AdguardTeam/AdguardDNS/issues/64
+; Fixing Google Search ads when HTTPS filtering is disabled
+://googleadservices.com CNAME rpz-passthru.
+://www.googleadservices.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/4453
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4317
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4243
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4096
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4059
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3755
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3616
+
+; https://forum.adguard.com/index.php?threads/16921/
+
+
+; https://forum.adguard.com/index.php?threads/16893/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3492
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3451
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3310
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/1275
+
+; redtube.com - fixing icons
+
+; https://forum.adguard.com/index.php?threads/12453/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2676
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2112
+; Fixing Google Shopping
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2294
+
+; https://forum.adguard.com/index.php?threads/11102/
+
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1986
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/484
+auto-api.yelp.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1942
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1858
+
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1749
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1574
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1391
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1374
+
+; http://forum.adguard.com/showthread.php?8708
+
+; twitch.tv on iPhone
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1034
+; ok.ru android app - video is broken
+
+; http://forum.adguard.com/showthread.php?7897
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1015
+; Sport1 app
+
+; http://forum.adguard.com/showthread.php?7509
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/839
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/720
+
+
+; Fixing video and comments on cnet.com
+
+
+
+; T-Mobile - fixing MMS
+
+; https://play.google.com/store/apps/details?id=com.digidust.elokence.akinator.freemium - continuous attempt to download
+
+; olx.ua app
+
+; Viber[App] - the problem with the stickers store
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/310
+
+; Prevent filtering apk storage of Google Play
+
+; Do not break Taboola newsfeed in the samsung browser.
+; It is used as a homepage there.
+; https://news.internet.apps.samsung.com
+; https://quickaccess.internet.apps.samsung.com/cc=us
+
+
+
+
+
+
+;+ PLATFORM(ext_android_cb)
+
+
+;---------------------------------------------------------------------------;
+;-------------- Rules for specific websites --------------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of domain-specific rules that block ads on mobile devices.
+;
+
+
+;
+;
+
+
+
+
+
+
+
+
+;
+; https://forum.adguard.com/index.php?threads/10464/
+
+;
+
+
+
+
+
+;
+
+
+
+
+;
+; Facebook
+;; old interface
+
+
+
+
+
+
+
+;; new interface
+
+
+
+
+
+
+
+
+;; new interface search ads
+
+
+
+
+
+;;; Ad in menu
+
+; For iPad - it has a different layout than smaller devices
+
+;
+; Common names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+; TODO: Replace by class rule when https://github.com/AdguardTeam/FiltersCompiler/issues/221 is resolved.
+
+;
+; SECTION: Regular rules
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; NOTE: Regular rules end ⬆️
+; ;SECTION: Regular rules
+;
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/187162
+; hanime1.me
+
+
+
+
+
+
+; noodlemagazine.com
+
+
+
+
+
+
+; op.gg
+
+
+
+
+
+
+
+
+
+
+; amazon.de mobile ad text in cart
+
+; Sponsored products
+
+
+
+
+;
+; G/O Media / g-omedia.com and similar
+
+
+
+
+
+;
+
+
+
+
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/121631
+;+ PLATFORM(ios, ext_android_cb, ext_safari)
+
+;+ PLATFORM(ios, ext_android_cb, ext_safari)
+
+;+ PLATFORM(ios, ext_safari)
+
+; citysites.ua
+
+;
+; Google
+
+
+
+;
+; START: Yandex
+;
+; Main page
+; Context ads(must be excluded in useful ads)
+
+
+; Yandex.Search
+; Search mobile(not tablet)
+
+
+
+; Yandex.News
+
+; Yandex.Market
+;
+; END: Yandex
+;
+; Dzen
+
+
+
+
+
+; Dzen News
+
+; Dzen feed
+
+
+
+
+; Dzen Video
+
+; Dzen Weather
+
+; Rambler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+; m.vk.com
+
+
+
+;
+; xhamster.com
+
+
+
+
+
+
+
+
+
+
+
+
+;
+; Группа компаний Актион
+
+;
+
+
+;
+; rp5.ru
+
+
+
+
+
+;
+; gismeteo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+; adme.media
+; ads in the feed - main page
+
+
+; ads in the recommended feed - articles
+
+
+
+;
+; For Moscow subway WiFi
+
+
+
+
+
+
+
+;
+;
+
+
+;
+
+;
+; subdomains
+
+;
+
+
+;
+
+
+
+
+
+
+
+;
+
+;
+
+;
+
+
+;
+;
+; START: Livejournal.com
+;
+
+
+
+;
+; END: Livejournal.com
+;
+;
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/190207
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/188948
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/187643
+;+ PLATFORM(windows, mac, android)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/165241
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/69965
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ NOT_OPTIMIZED
+
+; https://forum.adguard.com/index.php?threads/android-not-blocking-ads-on-yahoo-sites.34021
+;+ NOT_OPTIMIZED
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17845
+;+ NOT_OPTIMIZED
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/16295
+;+ NOT_OPTIMIZED
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/16410
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/13505
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ NOT_OPTIMIZED
+
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ PLATFORM(ios, ext_android_cb)
+
+;+ NOT_PLATFORM(ios, ext_android_cb)
+
+;
+; Special rules for AdGuard websites' test pages. The only purpose of these
+; rules is to make test pages work so that users could verify that AdGuard
+; is properly working.
+;
+;+ NOT_OPTIMIZED
+
+; Detect of using AdGuard products
+;+ PLATFORM(windows, mac, android, ios) NOT_OPTIMIZED
+
+;+ NOT_PLATFORM(windows, mac, android, ios, ext_ublock) NOT_OPTIMIZED
+
+; Detect HTTPS filtering
+;+ PLATFORM(windows, mac, android) NOT_OPTIMIZED
+https-filtering-check.adtidy.org CNAME .
+; Detect Advanced Protection of AdGuard for iOS
+;+ PLATFORM(ios) NOT_OPTIMIZED
+
+;
+
+;---------------------------------------------------------------------------;
+;-------------- Rules for specific applications ----------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of the base rules that block ads in mobile apps. Rules should be specific.
+;
+
+
+;
+;
+; ru.yandex.metro
+
+;
+
+
+;
+; Google ads (be careful)
+
+;
+; Blocking specific apps tracking
+; Booking app
+
+
+;
+; Blocking Facebook mobile ads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+
+;
+; Yandex ads in mobile apps
+
+
+
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/187116
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/185996
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/183979
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/161152
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/181356
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/181178
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/174175
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/173122
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/166767
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/155542
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/155650
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/154955
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/153135
+
+; https://play.google.com/store/apps/details?id=com.cashwalk.cashwalk
+adcenter-api.cashwalk.co CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/149253
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/149847
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/148264
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/150070
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/142308
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/141219
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/138657
+
+; com.square_enix.android_googleplay.dqwalkj ad requests
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/134999
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/134473
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/133274
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/129011
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/124995
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/121406
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119448
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/119419
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/117751
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/117330
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/116014
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/115498
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114506
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/108202
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/101531
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/99488
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/97770 (analytics request passes from facebook.com )
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/97849
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/94781
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/88275
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/61705
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/83681
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/84074
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/83378
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/75038
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/69657
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/60163
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/67193
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/66939
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/64394
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/62310
+
+;
+; Viber
+ads.viber.com CNAME .
+ads-d.viber.com CNAME .
+; Block Google DNS for TikTok app
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/57809
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/52955
+
+; Ads in some Chinese browsers(clones)
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/51115
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/41592
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/41572
+
+; https://github.com/AdguardTeam/AdguardFilters/pull/41533/
+; Duodian
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/38987
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36310
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/36655
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/31633
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29964
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29913
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29029
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/28827
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/29289
+
+;
+
+;
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/25302
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/24541
+adcs.rqmob.com CNAME .
+
+preitem.wshareit.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/23401
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/22728
+; Ad in Opera
+api-a.op-mobile.opera.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/21120
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/18802
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21629
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21078
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/20486
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/18445
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/18472
+promotion.polarisoffice.com CNAME .
+; https://github.com/AdguardTeam/AdguardFilters/issues/18514
+newad.ifeng.com CNAME .
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/17456
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/15477
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/15143
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/13716
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/13224
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/11459
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/10326
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/8935
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/8162
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7352
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/7287
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/22179
+
+
+; https://forum.adguard.com/index.php?threads/13437/
+
+
+
+; https://forum.adguard.com/index.php?threads/13437/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3346
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5191
+
+; https://forum.adguard.com/index.php?threads/21611/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4898
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4722
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4644
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4572
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/1016
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4184
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/4161
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3738
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/3634
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/569
+
+; Dailyhunt
+
+; sport1.mobile.android.apps
+
+; Gumtree app
+
+
+; Zigbang (analytics)
+
+; Tinder (analytics)
+etl.tindersparks.com CNAME .
+
+; For Xiaomi devices
+
+; GO Keyboard
+
+; Investing.com Forex
+
+; WPS Office
+
+
+
+; https://github.com/AdguardTeam/AdguardForAndroid/issues/587
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/2182
+
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/2026
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1806
+; Jewels Maze 2
+
+; https://github.com/AdguardTeam/ExperimentalFilter/issues/1065
+
+; Plants vs. Zombies
+
+; DU Browser
+
+;+ PLATFORM(ios)
+
+;+ PLATFORM(ios)
+
+; megogo for Android
+
+; Asphalt 8
+
+; AMC app
+
+; DYWX Apps
+sensors.larkplayerapp.com CNAME .
+; Snow Inc (Line) Apps
+log.kajicam.com CNAME .
+; Google Maps Promoted Pins
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/89875
+; com.gitvdemo.video
+
+;
+; French-language official catch-up TV mobile apps
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/103930
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/100525
+
+
+
+
+;
+
+;---------------------------------------------------------------------------;
+;------------------ Content replacement rules ------------------------------;
+;---------------------------------------------------------------------------;
+;
+; This section contains the list of the content replacement rules that block ads on mobile devices. Rules must be domain-specific.
+;
+
+; Bad:  
+;
+; https://github.com/AdguardTeam/AdguardFilters/issues/101976
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/21078
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/10315
+
+; https://forum.adguard.com/index.php?threads/23599/
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/5676
+
+;
+
+
+
+
+

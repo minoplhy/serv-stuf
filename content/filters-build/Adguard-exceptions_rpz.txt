@@ -1,0 +1,327 @@
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1773
+; Blocked by CNAME s1search.co
+www.dogpile.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1771
+; Related to disguised tracker
+
+acs-m.daraz.com.bd CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1768
+f-gear.ec-optimizer.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1765
+; Blocked by CNAME unbouncepages.com
+hidive.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/187801
+res.ads.nicovideo.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1720
+; Blocked by CNAME data.adobedc.net
+lloydsbankinggroup.tt.omtrdc.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1717
+sax.sina.com.cn CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1709
+; Blocked by CNAME postaffiliatepro.com
+linka.page CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1702
+track.webgains.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1681
+; Blocked by CNAME fp27ee.wac.systemcdn.net
+secureimage.securedataimages.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1668
+; Blocked by CNAME nr-data.net
+infra-api.newrelic.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1631
+; Blocked by CNAME nc0.co
+tms.capitalone.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1613
+redir.ownpage.fr CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1583
+; Blocked by CNAME go2jump.org
+tr.rdrtr.com CNAME rpz-passthru.
+;
+; Blocked by CNAME exponea.com
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1604
+media-consumer365.desigual.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/164769
+
+crm-cdn.peek-cloppenburg.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/992
+public-cis.exponea.com CNAME rpz-passthru.
+; cdn.rozetka.com.ua is blocked by CNAME 'rozetka-cdn.exponea.com'
+cdn.rozetka.com.ua CNAME rpz-passthru.
+;
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1569
+recommender.scarabresearch.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/167622
+; Blocked by CNAME extole.com
+refer.discover.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/167320
+cmp.inmobi.com CNAME rpz-passthru.
+; Blocked by CNAME data.adobedc.net
+data.digital.costco.ca CNAME rpz-passthru.
+data.digital.costco.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/163141
+api.karte.io CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1464
+sponsor.nitropay.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/157550
+click.cptrack.de CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1412
+; line25.com - not able to accept cookies to use the page
+ezodn.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1411
+gate.first-id.fr CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1401
+; Blocked by CNAME bodis.com
+leechers-paradise.org CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1406
+; Blocked by CNAME iocnt.net
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/150715
+go.adjust.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/150038
+; Blocked by CNAME getblueshift.com
+clickattr.wayup.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1393
+; Blocked by CNAME adperfect.com
+remembering.ca CNAME rpz-passthru.
+obituaries.therecord.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1265
+catchup.thisisdax.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1239
+px.a8.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1181
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1344
+cdn.duurzaam.greenchoice.nl CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/136509
+; Blocked by CNAME c.msn.com
+c.office.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1131
+surveymyopinion.researchnow.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1114
+; Blocked by CNAME track.customer.io
+e.customeriomail.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1115
+; Blocked by CNAME tapfiliate.com
+partner.everydays.de CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/134172
+api.docodoco.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/133715
+js.monitor.azure.com CNAME rpz-passthru.
+; https://old.reddit.com/r/Adguard/comments/wkcvpx/redirect_link_not_working_when_adguard_pro_ios_is/
+link.morningbrew.com CNAME rpz-passthru.
+
+click.appcast.io CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/977
+anwb.webpower.eu CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/121419
+eum-blue-saas.instana.io CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/959
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/114908
+torimochi.line-apps.com CNAME rpz-passthru.
+; Fixing crazyegg.com login page
+core.crazyegg.com CNAME rpz-passthru.
+app.crazyegg.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/937
+oa.tr.line.me CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/115247
+stash.roistat.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/113049
+
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/111707
+
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/897
+; Blocked by CNAME affex.org
+marketing.net.idealo-partner.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/107168
+netatmo.commander1.com CNAME rpz-passthru.
+; https://github.com/easylist/easylist/pull/9904
+vcentry3.valuecommerce.ne.jp CNAME rpz-passthru.
+; Fixing the issue with "Wi-Fi" connection mark when you configure private DNS on Android 9
+; Once you enable private DNS, Android 9 starts resolving random domains looking like
+
+; Here you can check how it's used by Android: https://cs.android.com/search?q=ds.metric.gstatic.com
+-ds.metric.gstatic.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/824
+id.i2i.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/98798
+thumbnail.thench.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/819
+validate.perfdrive.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/98729
+ia.hit.interia.pl CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/797
+r.sascdn.com CNAME rpz-passthru.
+; https://forum.adguard.com/index.php?threads/amplitude-com-blocked.45115
+analytics.amplitude.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/783
+adsterra.com CNAME rpz-passthru.
+ads.adsterra.com CNAME rpz-passthru.
+publishers.adsterra.com CNAME rpz-passthru.
+beta.publishers.adsterra.com CNAME rpz-passthru.
+partners.adsterra.com CNAME rpz-passthru.
+beta.partners.adsterra.com CNAME rpz-passthru.
+affiliates.adsterra.com CNAME rpz-passthru.
+beta.affiliates.adsterra.com CNAME rpz-passthru.
+help-advertisers.adsterra.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/759
+; Blocked by CNAME impactradius.com
+goto.target.com CNAME rpz-passthru.
+goto.walmart.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/743
+citiintl.122.2o7.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/805
+ma135-r.analytics.edgekey.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/89190
+79423.analytics.edgekey.net CNAME rpz-passthru.
+;
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/98565
+classliving.lpages.co CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/829
+home.focusatwill.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/707
+health.halodoc.com CNAME rpz-passthru.
+;
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/709
+promo.gramedia.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/81939
+support-beacon.nakanohito.jp CNAME rpz-passthru.
+support-widget.nakanohito.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/pull/660
+afi-b.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/pull/636
+daikoku.ebis.ne.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/629
+envato.market CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/pull/76413
+; whitelist as click-through
+ac.ebis.ne.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/602
+; Don't block clicks in AWS emails
+email.awscloud.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/574
+; Blocked by relevant-digital.com
+oneline.nextday.media CNAME rpz-passthru.
+; Reported via Telegram: https://t.me/AdGuard_chinese/13741
+ftp.bmp.ovh CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/580
+cloud.notification-naviextras.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/568
+email.elitedangerous.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/551
+links.e.theatlantic.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/71289
+app.appsflyer.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/71434
+email.procook.co.uk CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/498
+omsc.kpn.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/514
+logentries.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/517
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/65326
+go.scorptec.com.au CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/468
+links.getblueshift.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/453
+click.trafficguard.ai CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/441
+hb.afl.rakuten.co.jp CNAME rpz-passthru.
+pt.afl.rakuten.co.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/62583
+proto2ad.durasite.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/62780
+tags.crwdcntrl.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/428
+; CNAME: paymaya.customlinks.appsflyer.com
+official.paymaya.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1499
+statcounter.com CNAME rpz-passthru.
+www.statcounter.com CNAME rpz-passthru.
+gs.statcounter.com CNAME rpz-passthru.
+; Blocked by exacttarget.com alias
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/333
+
+click.virt.exacttarget.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/685
+; Exacttarget Marketing Cloud
+
+; https://github.com/AdguardTeam/AdguardFilters/issues/61592
+login.sendpulse.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/451
+a.sellpoint.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/59840
+tlaol.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/378
+admin.dable.io CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/358
+log.mmstat.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/345
+; Blocked by alimama.com alias
+click.simba.taobao.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/340
+cs.silverpop.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/312
+grp07.ias.rakuten.co.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/304
+cindyholbrook.lpages.co CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/289
+; Fixing Google Shop and Google Ads in search results.
+; These ads cannot be hidden on the DNS-level, so we should not break clicks on the adverts
+pagead.l.doubleclick.net CNAME rpz-passthru.
+www.googleadservices.com CNAME rpz-passthru.
+googleadapis.l.google.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/287
+my.tealiumiq.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/267
+artifactory.appodeal.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/258
+www.jdoqocy.com CNAME rpz-passthru.
+cj.dotomi.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/50415
+intersport.peerius.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/231
+cutcaptcha.com CNAME rpz-passthru.
+; https://forum.adguard.com/index.php?threads/36967/
+forum.notebookreview.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/199
+radiofrance.targetspot.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/190
+awin1.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/185
+app.adjust.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/183
+feed.adrelayer.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/168
+redirect.appmetrica.yandex.com CNAME rpz-passthru.
+; Fixing redirects through guce.advertising.com (www.engadget.com, www.huffpost.com)
+guce.advertising.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/27196
+a.adwolf.ru CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/26607
+imasdk.googleapis.com CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/23929
+cm-beacon.nakanohito.jp CNAME rpz-passthru.
+cm-widget.nakanohito.jp CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/19113
+ads.tdbank.com CNAME rpz-passthru.
+
+nineto5mac-d.openx.net CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardDNS/issues/192
+redir.tradedoubler.com CNAME rpz-passthru.
+
+; https://forum.adguard.com/index.php?threads/27021/
+href.li CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/6749
+str.hit.gemius.pl CNAME rpz-passthru.
+; https://github.com/AdguardTeam/AdguardFilters/issues/6486
+track.rutarget.ru CNAME rpz-passthru.
+; Watson News App for iOS https://github.com/AdguardTeam/AdguardFilters/issues/4524
+5471782.fls.doubleclick.net CNAME rpz-passthru.
+; Fixing Walmart
+omniture.walmart.com CNAME rpz-passthru.
+
+
+
